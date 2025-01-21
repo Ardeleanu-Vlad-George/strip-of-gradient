@@ -4,9 +4,9 @@
 #include <SFML/Graphics.hpp>
 
 void log_help(std::ostream& os){
-  std::cout<<"Provide the following arguments:\n";
-  std::cout<<"\t- the color for which the gradient is generated, it must be 'r', 'g' or 'b'\n";
-  std::cout<<"\t- the name of the file to be saved in './data/'\n";
+  os<<"Provide the following arguments:\n";
+  os<<"\t- the color for which the gradient is generated, it must be 'r', 'g' or 'b'\n";
+  os<<"\t- the name of the file to be saved in './data/'\n";
 }
 
 int main(int argc, char *argv[]){
