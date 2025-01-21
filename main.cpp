@@ -1,6 +1,7 @@
 #include <iostream>
-#include <SFML/Graphics.hpp>
+#include <cstdio>
 #include <cstring>
+#include <SFML/Graphics.hpp>
 
 void log_help(std::ostream& os){
   std::cout<<"Provide the following arguments:\n";
@@ -23,6 +24,21 @@ int main(int argc, char *argv[]){
     log_help(std::cerr);
     return 3;
   }
-  std::cout<<"Normal behaviour\n";
+  sf::Image img;
+  img.create(256, 50);
+  char choice = argv[1][0];
+  for(int i=0; i < 256; i++)
+    for(int j=0; j < 50; j++)
+      img.setPixel(
+        i, j,
+        sf::Color(
+          'r' == choice ? i : 0,
+          'g' == choice ? i : 0,
+          'b' == choice ? i : 0
+        )
+      );
+  char file[251];
+  sprintf(file, "data/%s.png", argv[2]);
+  img.saveToFile(file);
   return 0;
 }
