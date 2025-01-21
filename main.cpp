@@ -10,19 +10,19 @@ void log_help(std::ostream& os){
 }
 
 int main(int argc, char *argv[]){
-  if(2 == argc && strcmp(argv[1], "HELP") == 0){
+  if(2 == argc && strcmp(argv[1], "help") == 0){
     log_help(std::clog);
     return 1;
   }
   if(3 != argc){
     std::cerr<<"Too few arguments\n";
     log_help(std::cerr);
-    return 2;
+    return -1;
   }
   if(strcmp(argv[1], "r")!=0 && strcmp(argv[1], "b")!=0 && strcmp(argv[1], "g")!=0){
     std::cerr<<"Incorrect color option\n";
     log_help(std::cerr);
-    return 3;
+    return -2;
   }
   sf::Image img;
   img.create(256, 50);
